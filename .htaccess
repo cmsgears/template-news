@@ -1,25 +1,24 @@
 BrowserMatch MSIE ie
-Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie
 
 RewriteEngine On
 
 # pass all the non uploads and non admin requests to frontend application
-RewriteCond %{REQUEST_URI} !^/(cmgnews/uploads)
-RewriteCond %{REQUEST_URI} !^/(cmgnews/backend/web|cmgnews/backend)
-RewriteRule !(frontend/web) /cmgnews/frontend/web%{REQUEST_URI} [L]
+RewriteCond %{REQUEST_URI} !^/(news/uploads)
+RewriteCond %{REQUEST_URI} !^/(news/backend/web|news/backend)
+RewriteRule !(frontend/web) /news/frontend/web%{REQUEST_URI} [L]
 
 # pass all the admin requests to admin application
-RewriteCond %{REQUEST_URI} ^/(cmgnews/backend)
-RewriteRule !(backend/web) /cmgnews/backend/web%{REQUEST_URI} [L]
+RewriteCond %{REQUEST_URI} ^/(news/backend)
+RewriteRule !(backend/web) /news/backend/web%{REQUEST_URI} [L]
 
 # handle frontend application requests
-RewriteCond %{REQUEST_URI} ^/cmgnews/frontend/web
+RewriteCond %{REQUEST_URI} ^/news/frontend/web
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)\?*$ /cmgnews/frontend/web/index.php/$1 [L,QSA]
+RewriteRule ^(.*)\?*$ /news/frontend/web/index.php/$1 [L,QSA]
 
 # handle admin application requests
-RewriteCond %{REQUEST_URI} ^/cmgnews/backend/web
+RewriteCond %{REQUEST_URI} ^/news/backend/web
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)\?*$ /cmgnews/backend/web/index.php/$1 [L,QSA]
+RewriteRule ^(.*)\?*$ /news/backend/web/index.php/$1 [L,QSA]
