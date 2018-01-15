@@ -64,12 +64,21 @@ return [
 		],
         'urlManager' => [
 	        'rules' => [
-	        	// APIX Rules
-	        	'apix/<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
-	        	'apix/<controller:\w+>/<action:[\w\-]+>' => 'core/apix/<controller>/<action>',
-	        	// Regular Rules
-	        	'<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
-	        	'<action:(login|logout|dashboard|forgot-password|reset-password|activate-account)>' => 'core/site/<action>'
+	        	// apix request rules --------------------------
+                        // Core - 2 levels
+                        'apix/<controller:[\w\-]+>/<action:[\w\-]+>' => 'core/apix/<controller>/<action>',
+                        // Generic - 3, 4 and 5 levels - catch all
+                        'apix/<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
+                        'apix/<module:\w+>/<pcontroller:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller>/<controller>/<action>',
+                        'apix/<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller1>/<pcontroller2>/<controller>/<action>',
+                        // regular request rules -----------------------
+                        // Core Module Pages
+                        '<controller:[\w\-]+>/<action:[\w\-]+>' => 'core/<controller>/<action>',
+                        // Module Pages - 2 and 3 levels - catch all
+                        '<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
+                        '<module:\w+>/<pcontroller:[\w\-]+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<pcontroller>/<controller>/<action>',
+                        // Standard Pages
+                        '<action:(login|logout|dashboard|forgot-password|reset-password|activate-account)>' => 'core/site/<action>'
 	        ]
 		],
         'core' => [
