@@ -1,8 +1,8 @@
-Project 	- CMSGears (http://www.cmsgears.org)
+Project 	- CMSGears (https://www.cmsgears.org)
 
 Template  	- News
 
-License 	- cmsgears (http://www.cmsgears.com/license)
+License 	- CMSGears (https://www.cmsgears.com/license)
 
 Description - The news template requires below listed modules, plugins, themes and widgets provided by CMSGears.
 
@@ -128,3 +128,4 @@ CMS
 ----------------------------
 1. CMS Page - The published pages can be accessed by site url followed by page slug.
 2. CMS Post - The published posts can be accessed by site url followed by post/(post slug).
+
