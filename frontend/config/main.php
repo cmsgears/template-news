@@ -1,102 +1,118 @@
 <?php
 
 $params = yii\helpers\ArrayHelper::merge(
-    require( dirname( dirname( __DIR__ ) ) . '/common/config/params.php' ),
-    require( __DIR__ . '/params.php' )
+	require( __DIR__ . '/../../common/config/params.php' ),
+	require( __DIR__ . '/params.php' )
 );
 
 return [
-    'id' => 'app-frontend',
-    'name' => 'news Web',
-    'version' => '2.0.0',
-    'basePath' => dirname(__DIR__),
-    'controllerNamespace' => 'frontend\controllers',
-    'defaultRoute' => 'core/site/index',
-    'bootstrap' => [ 'log', 'core', 'cms', 'forms','notify', 'foxSlider', 'newsletter' ],
-    'modules' => [
-        'forms' => [
-            'class' => 'cmsgears\forms\frontend\Module'
-        ],
-        'cms' => [
-            'class' => 'cmsgears\cms\frontend\Module'
-        ],
-        'core' => [
-            'class' => 'news\core\frontend\Module'
-        ],
-        'notify' => [
-            'class' => 'cmsgears\notify\admin\Module'
-        ],
-        'newsletter' => [
-            'class' => 'cmsgears\newsletter\frontend\Module'
-        ]
-        
-    ],
-    'components' => [
-        'view' => [
+	'id' => 'cmg-news-site',
+	'name' => 'News Demo',
+	'version' => '1.0.0',
+	'basePath' => dirname( __DIR__ ),
+	'controllerNamespace' => 'frontend\controllers',
+	'defaultRoute' => 'core/site/index',
+	'catchAll' => null,
+	'bootstrap' => [
+		'log',
+		'core', 'cms', 'forms', 'snsConnect', 'newsletter', 'notify',
+		'foxSlider'
+	],
+	'modules' => [
+		'core' => [
+			'class' => 'cmsgears\core\frontend\Module'
+		],
+		'cms' => [
+			'class' => 'cmsgears\cms\frontend\Module'
+		],
+		'forms' => [
+			'class' => 'cmsgears\forms\frontend\Module'
+		],
+		'snsconnect' => [
+			'class' => 'cmsgears\social\connect\frontend\Module'
+		],
+		'newsletter' => [
+			'class' => 'cmsgears\newsletter\frontend\Module'
+		],
+		'notify' => [
+			'class' => 'cmsgears\notify\frontend\Module'
+		]
+	],
+	'components' => [
+		'view' => [
 			'theme' => [
-            	'class' => 'themes\newstheme\Theme',
-            	'childs' => [
-            		// Child themes to override theme css and to add additional js
-            	]
+				'class' => 'themes\news\Theme',
+				'childs' => [
+					// Child themes to override theme css and to add additional js
+				]
 			]
-        ],
-        'request' => [
-            'csrfParam' => '_csrf-app',
-		    'parsers' => [
-		        'application/json' => 'yii\web\JsonParser'
-		    ]
-        ],
-        'user' => [
-            'identityCookie' => [ 'name' => '_identity-app', 'httpOnly' => true ]
-        ],
-        'session' => [
-            'name' => 'blog-app'
-        ],
-        'errorHandler' => [
-            'errorAction' => 'core/site/error'
-        ],
+		],
+		'request' => [
+			'csrfParam' => '_csrf-cmg-news-site',
+			'parsers' => [
+				'application/json' => 'yii\web\JsonParser'
+			]
+		],
+		'user' => [
+			'identityCookie' => [ 'name' => '_identity-cmg-news-site', 'httpOnly' => true ]
+		],
+		'session' => [
+			'name' => 'cmg-news-site'
+		],
+		'errorHandler' => [
+			'errorAction' => 'core/site/error'
+		],
 		'assetManager' => [
 			'bundles' => require( __DIR__ . '/' . ( YII_ENV_PROD ? 'assets-prod.php' : 'assets-dev.php' ) )
 		],
-        'urlManager' => [
-	        'rules' => [
-	        	// api request rules ---------------------------
-	        	'api/<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/api/<controller>/<action>',
-	        	'api/<module:\w+>/<controller:[\w\-]+>/<pcontroller:[\w\-]+>/<action:[\w\-]+>' => '<module>/api/<controller>/<pcontroller>/<action>',
-	        	'api/<module:\w+>/<pcontroller:\w+>/<pcontroller2:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/api/<pcontroller>/<pcontroller2>/<controller>/<action>',
-	        	// apix request rules --------------------------
-	        	// Forms - site forms
-	        	'apix/form/<slug:[\w\-]+>' => 'forms/apix/form/submit',
-	        	// Core Module Actions - 2 levels
-	        	'apix/<controller:\w+>/<action:[\w\-]+>' => 'core/apix/<controller>/<action>',
-	        	// Module Actions - 3, 4 and 5 levels
-	        	'apix/<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
-	        	'apix/<module:\w+>/<pcontroller:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller>/<controller>/<action>',
-	        	'apix/<module:\w+>/<pcontroller:\w+>/<pcontroller2:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller>/<pcontroller2>/<controller>/<action>',
+		'urlManager' => [
+			'rules' => [
+				// TODO: Use Group Rule for api and apix prefix
+				// api request rules ---------------------------
+				// Generic - 3, 4 and 5 levels - catch all
+				'api/<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/api/<controller>/<action>',
+				'api/<module:\w+>/<controller:[\w\-]+>/<pcontroller:[\w\-]+>/<action:[\w\-]+>' => '<module>/api/<controller>/<pcontroller>/<action>',
+				'api/<module:\w+>/<pcontroller1:\w+>/<pcontroller2:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/api/<pcontroller1>/<pcontroller2>/<controller>/<action>',
+				// apix request rules --------------------------
+				// Forms - site forms
+				'apix/form/<slug:[\w\-]+>' => 'forms/apix/form/submit',
+				// Core - 2 levels
+				'apix/<controller:[\w\-]+>/<action:[\w\-]+>' => 'core/apix/<controller>/<action>',
+				// Generic - 3, 4 and 5 levels - catch all
+				'apix/<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
+				'apix/<module:\w+>/<pcontroller:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller>/<controller>/<action>',
+				'apix/<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller1>/<pcontroller2>/<controller>/<action>',
 				// regular request rules -----------------------
-	        	// Blog
-	        	'blog/search' => 'cms/post/search',
-	        	'blog/category/<slug:[\w\-]+>' => 'cms/post/category',
-	        	'blog/tag/<slug:[\w\-]+>' => 'cms/post/tag',
-	        	'blog/<slug:[\w\-]+>' => 'cms/post/single',
-				'blog/<controller:\w+>/<action:[\w\-]+>' => 'cms/<controller>/<action>',
-	        	// Forms
-	        	'form/<slug:[\w\-]+>' => 'forms/form/single',
-	        	// Core Module Pages
-	        	'<controller:\w+>/<action:[\w\-]+>' => 'core/<controller>/<action>',
-	        	// Module Pages
-	        	'<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
-	        	// Standard Pages
-	        	'<action:(home)>' => 'core/user/<action>',
-	        	'<action:(login|logout|register|forgot-password|reset-password|activate-account|confirm-account)>' => 'core/site/<action>',
-	        	// CMS Pages
-	        	'<slug:[\w\-]+>' => 'cms/page/single'
-	        ]
+				// SNS Connect
+				'sns/<controller:\w+>/<action:[\w\-]+>' => 'snsconnect/<controller>/<action>',
+				// TODO: Use Group Rule for blog
+				// Blog Posts - Public - search, category, tag and single
+				'blog/search' => 'cms/post/search',
+				'blog/category/<slug:[\w\-]+>' => 'cms/post/category',
+				'blog/tag/<slug:[\w\-]+>' => 'cms/post/tag',
+				'blog/<slug:[\w\-]+>' => 'cms/post/single',
+				// Blog Posts - Private 2 and 3 levels
+				'blog/manage/<action:[\w\-]+>' => 'cms/post/<action>',
+				'blog/<controller:\w+>/<action:[\w\-]+>' => 'cms/post/<controller>/<action>',
+				'blog/<pcontroller:\w+>/<controller:\w+>/<action:[\w\-]+>' => 'cms/post/<pcontroller>/<controller>/<action>',
+				// Forms
+				'form/<slug:[\w\-]+>' => 'forms/form/single',
+				// Core Module Pages
+				'<controller:[\w\-]+>/<action:[\w\-]+>' => 'core/<controller>/<action>',
+				// Module Pages - 2 and 3 levels - catch all
+				'<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
+				'<module:\w+>/<pcontroller:[\w\-]+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<pcontroller>/<controller>/<action>',
+				// Standard Pages
+				'<action:(home|profile|account|address|settings)>' => 'core/user/<action>',
+				'<action:(login|logout|register|forgot-password|reset-password|activate-account|confirm-account)>' => 'core/site/<action>',
+				// CMS Pages
+				'<slug:[\w\-]+>' => 'cms/page/single'
+			]
 		],
-        'core' => [
-        	'loginRedirectPage' => '/',
-        	'logoutRedirectPage' => '/'
-        ]
-    ],
-    'params' => $params
+		'core' => [
+			'loginRedirectPage' => '/home',
+			'logoutRedirectPage' => '/'
+		]
+	],
+	'params' => $params
 ];

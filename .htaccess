@@ -4,22 +4,22 @@ Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie
 RewriteEngine On
 
 # pass all the non uploads and non admin requests to frontend application
-RewriteCond %{REQUEST_URI} !^/(newsdemo/uploads)
-RewriteCond %{REQUEST_URI} !^/(newsdemo/backend/web|newsdemo/backend)
-RewriteRule !(frontend/web) /newsdemo/frontend/web%{REQUEST_URI} [L]
+RewriteCond %{REQUEST_URI} !^/(blogdemo/uploads)
+RewriteCond %{REQUEST_URI} !^/(blogdemo/backend/web|blogdemo/backend)
+RewriteRule !(frontend/web) /blogdemo/frontend/web%{REQUEST_URI} [L]
 
 # pass all the admin requests to admin application
-RewriteCond %{REQUEST_URI} ^/(newsdemo/backend)
-RewriteRule !(backend/web) /newsdemo/backend/web%{REQUEST_URI} [L]
+RewriteCond %{REQUEST_URI} ^/(blogdemo/backend)
+RewriteRule !(backend/web) /blogdemo/backend/web%{REQUEST_URI} [L]
 
 # handle frontend application requests
-RewriteCond %{REQUEST_URI} ^/newsdemo/frontend/web
+RewriteCond %{REQUEST_URI} ^/blogdemo/frontend/web
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)\?*$ /newsdemo/frontend/web/index.php/$1 [L,QSA]
+RewriteRule ^(.*)\?*$ /blogdemo/frontend/web/index.php/$1 [L,QSA]
 
 # handle admin application requests
-RewriteCond %{REQUEST_URI} ^/newsdemo/backend/web
+RewriteCond %{REQUEST_URI} ^/blogdemo/backend/web
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)\?*$ /newsdemo/backend/web/index.php/$1 [L,QSA]
+RewriteRule ^(.*)\?*$ /blogdemo/backend/web/index.php/$1 [L,QSA]

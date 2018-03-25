@@ -13,6 +13,3 @@ Yii::setAlias( '@frontend', dirname( dirname( __DIR__ ) ) . '/frontend' );
 
 // Foxslider
 Yii::setAlias( '@foxslider', dirname( dirname( __DIR__ ) ) . '/vendor/foxslider' );
-
-// News Template
-Yii::setAlias( 'news', dirname( dirname( __DIR__ ) ) . '/modules/news' );

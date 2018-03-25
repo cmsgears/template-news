@@ -2,19 +2,16 @@
 
 return [
 	'yii\web\JqueryAsset' => false,
-	'asset' => [
-		'class' => 'themes\newstheme\assets\AssetBundle'
-	],
 	'landing' => [
-		'class' => 'themes\newstheme\assets\LandingAssets'
+		'class' => 'themes\blog\assets\LandingAssets'
 	],
 	'public' => [
-		'class' => 'themes\newstheme\assets\PublicAssets'
+		'class' => 'themes\blog\assets\PublicAssets'
 	],
 	'blog' => [
-		'class' => 'themes\newstheme\assets\BlogAssets'
+		'class' => 'themes\blog\assets\BlogAssets'
 	],
 	'private' => [
-		'class' => 'themes\newstheme\assets\PrivateAssets'
+		'class' => 'themes\blog\assets\PrivateAssets'
 	]
 ];
