@@ -89,8 +89,7 @@ class FeaturedTags extends \cmsgears\core\common\base\Widget {
 		}
 
 		
-		//$tagsHtml		= implode( '', $tagsHtml );
-		$tagsHtml		= "";
+		$tagsHtml		= implode( '', $tagsHtml );
 
 		return Html::tag( 'div', $tagsHtml, $this->options );
 	}

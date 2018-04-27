@@ -1,0 +1,192 @@
+%element-style {
+    margin: 0.5em 0;
+    padding: 0.75em;
+    line-height: 1.5em;
+    border-radius: 0px;
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea, select {
+    //@include shadow-inset( 0, 0, 0, $color-secondary-l, $spread: 1px );
+    //@include rounded( $size-small );
+    font-family: $font-default !important;
+
+    &:focus {
+        @include shadow-inset( 3px, 0, 0, $color-btn, $spread: 0px );
+    }
+}
+
+input[type="submit"], input[type="button"], button, .btn {
+   // @include rounded( $size-small );
+    font-family: bebasneue !important;
+}
+
+.frm-icon-element {
+
+    input[type="text"], input[type="email"], input[type="password"], textarea, select, input[type="submit"], input[type="button"], button, .btn {
+        padding-left: 2.25em;
+    }
+
+    .cmti {
+        @include rounded-left( $size-small );
+        margin: 0.5em 0;
+        padding: 0.5em 0.75em;
+        //line-height: 1.5em;
+    }
+
+    .icon {
+        @include rounded-left( $size-small );
+        @include border-right( 1px, solid, $color-blue );
+        
+        padding: 0.8em 0.5em;
+        line-height: 0;
+        color: silver;
+    }
+
+    .icon-secondary {
+        padding: 2em 0.5em !important;
+    }
+}
+
+.icon-delete-secondary {
+    position: absolute;
+    right: 0;
+    top: 0.5em;
+    cursor: pointer;
+    //background-color: $color-tertiary;
+    color: $color-red;
+    padding: 0.65em;
+}
+
+#frm-listing , #frm-event{
+
+    .icon-delete-secondary {
+        @include rounded-right( 5px );
+        //top: 0;
+        padding: 0.5em;
+        //bottom: 0;
+        //bottom: 0.8em;
+        //line-height: 3em;
+        position: absolute;
+        //right: 0.4em;
+        //top: 0.8em;
+    }
+}
+
+#frm-sort {
+    margin-top: 0em;
+
+    ul li {
+
+        a {
+            color: $color-white;
+            //line-height: 1.5em;
+            padding: 0.3em;
+            margin: 0.5em 0.25em;
+            text-align: center;
+
+            background-color: lighten( $color-gray, 10% );
+
+            &.asc {
+                background-color: lighten( $color-green, 10% );
+            }
+
+            &.desc {
+                background-color: lighten( $color-link, 10% );
+            }
+        }
+    }
+}
+
+#frm-register, #frm-signup {
+    input,.cmti {
+        line-height: 1em;
+    }
+}
+
+.frm-split-40-60 label {
+    color: $color-primary-text;
+    font-family: $font-default-b;
+}
+
+.frm-split-40-60 .help-block {
+    padding-left: 40%;
+}
+
+@include responsive-max ( screen-mobile-large ) {
+
+    .frm-split-40-60 input[type="text"], .frm-split-40-60 input[type="email"], .frm-split-40-60 input[type="password"],
+    .frm-split-40-60 textarea, .frm-split-40-60 select, .frm-split-40-60 .cmt-checkbox, .frm-split-40-60 .cmt-switch, .element-60, .frm-split-40-60 label, .cmt-select-wrap, .frm-icon-element {
+        width: 100% !important;
+    }
+
+    .frm-split-40-60 label {
+        margin: 1em 0 0;
+        padding: 0;
+    }
+
+    .frm-split-40-60 .help-block {
+        padding-left: 0;
+    }
+}
+
+// Round cornered elements
+.frm-rounded-all .btn{
+      border-radius: 3px !important;
+      line-height: 1.4em;
+      position: relative;
+      top: -0.1em;
+}
+
+.frm-rounded-all input[type="text"], .frm-rounded-all input[type="email"], .frm-rounded-all input[type="password"],
+.frm-rounded-all textarea, .frm-rounded-all input[type="submit"], .frm-rounded-all input[type="button"], .frm-rounded-all button, .frm-rounded-all .btn {
+      @include rounded( $size-small );
+}
+
+.wrap-captcha {
+
+    input {
+        width: 50%;
+    }
+}
+
+.ignore-40-60 {
+    .radio-group {
+        width: 60% !important;
+        float: right;
+
+        label {
+        	float: none;
+        	display: inline-block;
+        }
+    }
+}
+
+.frm-public {
+		.required .control-label {
+				margin: 0;
+				padding: 0;
+
+				&::after {
+		  		content: "";
+		  	}
+		}
+
+		.cmt-choice label {
+	    	margin: 0;
+	   		padding: 0;
+		}
+
+		.frm-icon-element {
+
+				input[type="text"], input[type="email"], input[type="password"], textarea, select, input[type="submit"], input[type="button"], button, .btn {
+		        padding-left: 2.50em;
+		        line-height: 1.5em !important;
+		        color: $color-primary-d;
+		    }
+				.icon {
+						margin: 0.85em 0;
+    				padding: 0.9em 0.5em;
+    				color: silver;
+    		}
+		}
+}

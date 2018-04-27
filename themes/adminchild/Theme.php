@@ -1,13 +1,15 @@
 <?php
 namespace themes\adminchild;
 
-// BZ Imports
-use themes\adminchild\assets\ChildAssets;
+// Yii Imports
+use \Yii;
+
+use themes\adminchild\assets\ChildAssetBundle;
 
 class Theme {
 
 	public function registerAssets( $view ) {
 
-		ChildAssets::register( $view );
+		ChildAssetBundle::register( $view );
 	}
 }

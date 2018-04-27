@@ -1,0 +1,122 @@
+$color-transparent-black: black;//rgba( $color-black, $color-transparency-high );
+
+$color-transparent-black-l: black;// rgba( $color-black, $color-transparency-low );
+
+$color-transparent-white: black;// rgba( $color-primary-l, $color-transparency-high );
+
+$color-shadow: black;//rgba( $color-black, $color-transparency-low );
+
+$widget-color-1: #00bee1;
+
+$widget-color-2: #8db0e6;
+
+$widget-color-3: #a3d759;
+
+$widget-color-4: #eeba4c;
+
+$widget-color-5: #bdbec0;
+
+$widget-color-6: #fe575f;
+
+$color-light-blue: #f5f6f8;
+
+$color-rating: #ec9631;
+
+$color-green-l: #e7efe2;
+
+$color-red: #b32c26;
+
+$color-404: #3e62a0;
+
+.color-transparent-primary { 
+    background-color :  rgba( $color-primary, $color-transparent-medium );
+}
+
+.color-transparent-secondary {
+    background-color :  rgba( $color-secondary, $color-transparent-medium );
+}
+
+
+.color-transparent-tertiary { 
+    background-color :  rgba( $color-tertiary, $color-transparent-medium );
+}
+.color-transparent-white-l {
+    background-color :  rgba( $color-white, $color-transparent-low );
+}
+
+
+.color-transparent-white {
+    background-color  : rgba( $color-white, $color-transparent-medium );
+}
+
+.color-transparent-white-h {
+   background-color :  rgba( $color-white, $color-transparent-high );
+}
+
+.color-transparent-gray {
+   background-color :  rgba( $color-gray, $color-transparent-medium );
+}
+.color-transparent-black-l {
+   background-color :  rgba( $color-black, $color-transparent-low );
+}
+
+.color-transparent-black{
+     background-color :  rgba( $color-black, $color-transparent-medium ) !important;
+}
+
+.color-transparent-black-h{
+     background-color :  rgba( $color-black, $color-transparent-high );
+}
+
+.color-transparent-blue{
+    background-color :   rgba( $color-blue, $color-transparent-medium );
+}
+
+.color-transparent-purple{
+    background-color :  rgba( $color-purple, $color-transparent-medium );
+}
+.color-transparent-orange {
+     background-color :  rgba( $color-orange, $color-transparent-medium );
+}
+
+.color-transparent-yellow {
+    background-color :  rgba( $color-yellow, $color-transparent-medium );
+}
+
+.color-transparent-red {
+   background-color : rgba( $color-red, $color-transparent-medium );
+}
+.color-transparent-pink {
+   background-color :  rgba( $color-pink, $color-transparent-medium );
+}
+.color-transparent-magenta {
+   background-color :  rgba( $color-magenta, $color-transparent-medium );
+}
+
+.color-transparent-green {
+   background-color :  rgba( $color-green, $color-transparent-medium );
+}
+.color-transparent-green-d{
+   background-color :  rgba( $color-green-d, $color-transparent-medium );
+}
+
+.color-twitter {
+ background-color: $color-twitter;
+}
+
+.color-facebook{
+background-color: $color-facebook;
+}
+.color-google-plus{
+    background-color : $color-google-plus;
+}
+.color-instagram{
+  background-color : $color-instagram;
+}
+.color-linkedin{
+    background-color : $color-linkedin;
+}
+
+.color-boder-bottom {
+    border-color: #fff !important;
+}

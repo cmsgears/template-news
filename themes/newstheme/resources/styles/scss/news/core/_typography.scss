@@ -1,0 +1,37 @@
+html, body {
+
+    font-size: 10px;
+
+    @include responsive-min( screen-mobile-large ) {
+        font-size: 12px;
+    }
+
+    @include responsive-min( screen-tablet-large ) {
+        font-size: 14px;
+    }
+}
+
+.note {
+    padding: 1em;
+    background-color: $color-primary;
+    color: gray;
+}
+
+// Text at center with background line
+.text-with-line {
+    border-top: 1px solid $color-primary;
+
+    .text-content {
+        background-color: $color-primary-l;
+    }
+}
+
+p {
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .header-default {
+
+	font-family: roboto-bold;
+	letter-spacing: 1px;
+}

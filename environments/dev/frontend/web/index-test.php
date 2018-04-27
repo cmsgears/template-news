@@ -15,6 +15,4 @@ require( __DIR__ . '/../config/bootstrap.php' );
 
 $config = require( __DIR__ . '/../config/test-env.php' );
 
-$application = new \yii\web\Application( $config );
-
-$application->run();
+( new yii\web\Application( $config ) )->run();

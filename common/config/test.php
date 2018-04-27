@@ -6,9 +6,6 @@ return [
         'user' => [
             'class' => 'yii\web\User',
             'identityClass' => 'cmsgears\core\common\models\entities\User'
-        ],
-        'request' => [
-            'cookieValidationKey' => 'test'
         ]
     ]
 ];

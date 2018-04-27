@@ -1,0 +1,78 @@
+$font-default: clear-sans-reg, Helvetica, sans-serif;
+$font-default-b: clear-sans-reg-b, Helvetica, sans-serif;
+$font-heading: questrial, Geneva, sans-serif;
+
+// Font Sizing -
+$font-size-8: 0.9em;
+
+// Primary Color:
+$color-primary: #F4F6F8;
+$color-primary-l: #FFFFFF;
+$color-primary-d: #000000;
+
+// Primary Text Color:
+$color-primary-text: #3F3F46;
+$color-primary-text-l: #3F3F46;
+$color-primary-text-d: #FFFFFF;
+
+// Secondary Color:
+$color-secondary: #262626;
+$color-secondary-l: #3F3F46;
+$color-secondary-d: #000000;
+
+// Secondary Text Color:
+$color-secondary-text: #FFFFFF;
+$color-secondary-text-l: #FFFFFF;
+$color-secondary-text-d: #888888;
+
+// Tertiary Color:
+$color-tertiary: #FFFFFF;
+$color-tertiary-l: #FFFFFF;
+$color-tertiary-d: #3F62A0;
+
+// Tertiary Text Color:
+$color-tertiary-text: #3F62A0;
+$color-tertiary-text-l: #F56B6B;
+$color-tertiary-text-d: #FFFFFF;
+
+// Color Transparency
+$color-transparent-default: 0.15;
+$color-transparent-low: 0.25;
+$color-transparent-medium: 0.60;
+$color-transparent-high: 0.80;
+
+// Opaque colors
+$color-opaque-default: 0.15;
+$color-opaque-low: 0.25;
+$color-opaque-medium: 0.60;
+$color-opaque-high: 0.80;
+
+// Form Fields Color - input, textarea, select
+$color-field: #EAECF1;
+$color-field-text: #3F3F46;
+$color-field-h: #EAECF1;      // Field Hover
+$color-field-h-text: #3F62A0;
+$color-field-f: #F2F2F2;      // Focused Field
+$color-field-f-text: #3F62A0;
+$color-field-d: #CCCCCC;      // Disabled Field
+$color-field-d-text: #909090;
+$color-placeholder: #aaaaaa;  // Placeholder
+
+// Regular Buttons
+$color-btn: #3F62A0;
+$color-btn-text: #FFFFFF;
+$color-btn-h: #517BB7;    // Button Hover
+$color-btn-h-text: #FFFFFF;
+$color-btn-a: #3F62A0;    // Active Button
+$color-btn-a-text: #FFFFFF;
+$color-btn-d: #808080;       // Disabled Button
+$color-btn-d-text: #363636;
+
+// Additional Colors
+$color-header: #262626;
+$color-header-text: #ffffff;
+$color-footer: #262626;
+$color-footer-text: #ffffff;
+
+$color-link: #F3702E; // Default color for all the links
+$color-link-h: #E74343; // Hover color for links

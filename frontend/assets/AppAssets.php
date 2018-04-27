@@ -1,18 +1,17 @@
 <?php
 namespace frontend\assets;
 
-use yii\web\AssetBundle;
+// Yii Imports
+use \Yii;
 
-class AppAssets extends AssetBundle {
+class AppAssets extends \yii\web\AssetBundle {
 
 	// Variables ---------------------------------------------------
 
-	// Globals ----------------
+	// Public ----
 
-	// Public -----------------
-
-	public $basePath 	= '@webroot';
-	public $baseUrl 	= '@web';
+    public $basePath 	= '@webroot';
+    public $baseUrl 	= '@web';
 
 	// Load css
 	public $css		= [
@@ -20,38 +19,19 @@ class AppAssets extends AssetBundle {
 	];
 
 	// Load JS
-	public $js = [
-		//'scripts/main.js'
-	];
+    public $js = [
+    	//'scripts/main.js'
+    ];
 
 	// Load dependencies first
-	public $depends = [
-		//'cmsgears\core\common\assets\YiiAsset'
-	];
-
-	// Protected --------------
-
-	// Private ----------------
+    public $depends = [
+        'yii\web\YiiAsset'
+    ];
 
 	// Constructor and Initialisation ------------------------------
 
-	public function init()  {
+	public function __construct()  {
 
-		parent::init();
-
-		// Override parent
+		parent::__construct();
 	}
-
-	// Instance methods --------------------------------------------
-
-	// Yii interfaces ------------------------
-
-	// Yii parent classes --------------------
-
-	// CMG interfaces ------------------------
-
-	// CMG parent classes --------------------
-
-	// AppAssets -----------------------------
-
 }

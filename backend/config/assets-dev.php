@@ -9,6 +9,6 @@ return [
 		'class' => 'themes\admin\assets\PrivateAssets'
 	],
 	'child' => [
-		'class' => 'themes\adminchild\assets\ChildAssets'
+		'class' => 'themes\adminchild\assets\ChildAssetBundle'
 	]
 ];

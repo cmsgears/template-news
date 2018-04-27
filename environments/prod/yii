@@ -16,8 +16,8 @@ $config = yii\helpers\ArrayHelper::merge(
     require( __DIR__ . '/console/config/main-env.php' )
 );
 
-$application	= new \cmsgears\core\console\base\Application( $config );
+$application 	= new \cmsgears\core\console\base\Application( $config );
 
-$exitCode		= $application->run();
+$exitCode 		= $application->run();
 
 exit( $exitCode );
