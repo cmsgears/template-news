@@ -1,8 +1,0 @@
-/**********************************************************************
-Description: It defines the html elements styles for CMGTools excluding form, form elements and table.
-Dependencies: variables, mixins
-***********************************************************************/
-
-fieldset {
-    @include border( 1px, solid, $color-primary );
-}
