@@ -5,16 +5,16 @@ use yii\widgets\ActiveForm;
 // CMG Imports
 use cmsgears\widgets\block\BasicBlock;
 use cmsgears\cms\common\utilities\ContentUtil;
-use cmsgears\widgets\dblock\DynamicBlock;
+use cmsgears\widgets\elements\Block;
 
 $coreProperties = $this->context->getCoreProperties();
-$pageInfo		= ContentUtil::getPageInfo( $this );
+$pageInfo		= ContentUtil::initPage( $this );
 $bannerUrl		= null;//$pageInfo[ 'content' ]->getBannerUrl();
 
 include"ui-elements.php";
 ?>
 
-<?php DynamicBlock::begin([
+<?php Block::begin([
 	'options' => [ 'id' => 'block-public', 'class' => 'block height' ],
      'bkg'=> true, 
     //'bkgUrl' => $headerBanner, 
@@ -51,4 +51,4 @@ include"ui-elements.php";
 <?php ActiveForm::end(); } ?>
 </div>
 </div>
-<?php DynamicBlock::end() ?>
+<?php Block::end() ?>

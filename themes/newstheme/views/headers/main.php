@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 // CMG Imports
 use cmsgears\core\common\utilities\CodeGenUtil;
-use cmsgears\social\meta\SocialMeta;
+use cmsgears\social\meta\components\SocialMeta;
 ?>
 <meta charset="<?= $coreProperties->getCharset() ?>">
 <!-- Use minimum-scale=1.0, maximum-scale=1.0, user-scalable=no for mobile applications -->
@@ -13,7 +13,8 @@ use cmsgears\social\meta\SocialMeta;
 <?= CodeGenUtil::generateMetaTags( $this->params ) ?>
 <?= Html::csrfMetaTags() ?>
 
-<?= SocialMeta::getMetaTags( $this->params, [ 'twitter' => true, 'facebook' => true ] ) ?>
+<?php //SocialMeta::getMetaTags( $this->params, [ 'twitter' => true, 'facebook' => true ] )
+	?>
 
 <title><?= $this->title ?></title>
 

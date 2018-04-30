@@ -22,6 +22,9 @@ $menuItems = [
 
 //	$menuItems[]	= [ 'label' => 'Subscriptions', 'url' => [ "/ngo/main/subscriptions" ], 'options' => [ 'class' => 'btn bold' ] ];
 //}
+$uploaderView	= "@templates/widget/file-uploader/avatar/uploader";
+$chooserView	= "@templates/widget/file-uploader/avatar/chooser";
+$containerView	= "@templates/widget/file-uploader/avatar/container";
 ?>
 
 <?= AvatarUploader::widget([
@@ -29,7 +32,9 @@ $menuItems = [
 		'model' => $user->avatar, 'postAction' => true,
 		'postActionUrl' => "user/avatar?id=$userId"
 ]);?>
-
+	<?= AvatarUploader::widget( [ 'postAction' => true,
+		'postActionUrl' => "user/avatar?id=$userId", 'model' => $user->avatar, 'uploaderView' => $uploaderView, 'dragger' => false, 'containerView'=> $containerView, 'chooserView' => $chooserView, 'options' => [ 'class' => 'box box-file-uploader custom-file-uploader' ], 'type' => 'image', 'directory' => 'avatar' ] ) ?>
+						
 <?php foreach($menuItems as $item) { ?>
 
 	<div class="row padding padding-default">

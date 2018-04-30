@@ -41,8 +41,10 @@
 @import "cmt/components/menus/basic";
 @import "cmt/components/menus/collapsible";
 @import "cmt/components/menus/social";
+@import "news/components/menus/basic";
 
 @import "cmt/components/headers/basic";
+@import "news/components/headers/basic";
 
 @import "cmt/components/footers/basic";
 @import "news/components/footers/basic";
@@ -56,6 +58,9 @@
 @import "news/components/post";
 
 @import "cmt/components/boxes/login";
+
+@import "cmt/components/cards/basic";
+@import "news/components/cards/basic";
 
 // Extensions -------------------------------
 

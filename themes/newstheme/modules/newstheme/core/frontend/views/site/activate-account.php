@@ -9,7 +9,7 @@ use cmsgears\widgets\block\BasicBlock;
 use cmsgears\cms\common\utilities\ContentUtil;
 
 $coreProperties = $this->context->getCoreProperties();
-$pageInfo		= ContentUtil::getPageInfo( $this );
+$pageInfo		= ContentUtil::initPage( $this );
 $banner			= $pageInfo[ 'content' ]->banner;
 $bannerUrl		= isset( $banner ) ? $banner->getFileUrl() : null;
 $loginUrl		= Url::toRoute( [ "/login" ] );

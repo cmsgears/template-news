@@ -1,8 +1,12 @@
 
 #footer{
     height : 300px;
-    .border-bottom{
-          border-bottom: 1px solid #FFFFFF;
-    }
-    
+	
+    .border-bottom {
+          border-bottom: 1px solid $color-secondary-l;
+    } 
+	
+	.footer-title {
+		padding-bottom: 0.5em;
+	}
 }

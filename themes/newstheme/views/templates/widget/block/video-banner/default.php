@@ -4,7 +4,7 @@ use cmsgears\core\common\utilities\CodeGenUtil;
 
 <!-- Block Background -->
 <video width='auto' height='auto' autoplay='' loop='' controls>
-  <source src=' <?= $widget->videoUrl ?> ' type='video/mp4' >
+  <source src=' <?php // $widget->videoUrl ?> ' type='video/mp4' >
   <source src='movie.ogg' type='video/ogg'>
   Your browser does not support the video tag.
 </video>

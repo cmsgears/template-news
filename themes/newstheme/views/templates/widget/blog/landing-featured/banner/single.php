@@ -33,27 +33,3 @@ else {
 }
 
 ?>
-	<div class="col col12x4 post max-cols-100 single-block margin margin-small-v">
-		<a href="<?= $modelUrl ?>" >
-		<div class="bkg-image height" style="background-image:url( <?=$bannerUrl?> )">
-			<div   class="post-info height">
-				<div class="color-transparent-black  height height-75 align align-center text text-white  ">
-					<div class="padding padding-medium "> 
-						<?= $postContent  ?>
-					</div>
-						<hr class="width  width-25 color-boder-bottom">
-					<div class=" ">
-						<?= $modelTitle ?><br>
-						<?= $modelTime ?>
-					</div>
-				</div>
-				<div class="filler-height"> </div> 
-				<div class="row ">
-					<div class="blog-post-avatar  center bkg-image circled circled1" style="background-image:url(<?= $avatarUrl?> ); ">
-					</div>
-				</div> 
-			</div>
-		</div>
-	</a>	
-	</div>
-	

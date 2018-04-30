@@ -9,31 +9,15 @@ use cmsgears\widgets\blog\BlogPost;
 $themePath	= Yii::getAlias( '@themes/newstheme' );
 ?>
 <div class="wrap-footer bkg bkg-secondary " id="footer">
-    <footer class="content-90">
+    <footer class="">
             <div class="filler-height filler-height-medium">
             </div>    
-            <div class="row">
-                <div class="col col12x4 text text-white">
-                    <h3 class=" border-bottom">
-                        Lables
+            <div class="row row-xlarge">
+				<div class="col col12x4 text text-white padding padding-right-medium ">
+                    <h3 class="border-bottom footer-title">
+                        Instagram post
                     </h3>
-                    <?php FeaturedTags::begin([ ]);?>
-                    <?php FeaturedTags::end() ?>
-                    
-                </div>  
-                 <div class="col col12x4 text text-white align align-center">
-                    <h3 class=" border-bottom">
-                        CATEGORY
-                    </h3>
-                         
-                     <?php FeaturedCategories::begin([ ]);?>
-                    <?php FeaturedCategories::end() ?>
-                </div>  
-                  <div class="col col12x4 text text-white align align-right">
-                    <h3 class=" border-bottom">
-                        Lables
-                    </h3>
-                      
+					<div class="filler-height"></div>
                       <?= BlogPost::widget([
                 'templateDir' => yii::getAlias("@templates").'/widget/blog', 
                 //'template' =>  'widget/blog/banner',
@@ -42,7 +26,34 @@ $themePath	= Yii::getAlias( '@themes/newstheme' );
                 'pagination' => false ]) ?>
                       
                 </div>   
-            </div>    
+                <div class="col col12x4 text text-white padding padding-medium-h">
+                    <h3 class=" border-bottom footer-title">
+                        Categories
+                    </h3>
+					<div class="filler-height"></div>
+                    <?php FeaturedTags::begin([ ]);?>
+                    <?php FeaturedTags::end() ?>
+                    
+                </div>  
+                <div class="col col12x4 text text-white align align-center padding padding-left-medium">
+					<div class="padding padding-medium border border-bottom">
+						<img class="fluid" src="<?= Url::to(  Yii::getAlias( '@images' ) . '/icons/logo.png') ?>  ">
+					</div>
+					<div class="filler-height"></div>
+					<ul class="hnav-basic"> 
+						<li class="fab fa-twitter fa-2x padding padding-default"></li>
+						<li class="fab fa-facebook-f fa-2x padding padding-default"></li>
+						<li class="fab fa-instagram fa-2x padding padding-default"></li>
+					</ul>
+                </div>  
+            </div> 
+			<div class="filler-height"></div>
+			<div class="row row-xlarge">
+				<div class="col col1">
+					<h3 class="text text-white border-bottom footer-title">Landing topics</h3>
+					<div class="filler-height"></div>
+				</div>	
+			</div>
         </footer>   
     <div class="filler-height filler-height-medium bkg bkg-secondary">
     </div> 
