@@ -1,15 +1,21 @@
 <?php
+/**
+ * This file is part of CMSGears Framework. Please view License file distributed
+ * with the source code for license details.
+ *
+ * @link https://www.cmsgears.org/
+ * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
+ */
+
 namespace themes\adminchild;
 
-// Yii Imports
-use \Yii;
-
-use themes\adminchild\assets\ChildAssetBundle;
+// CMG Imports
+use themes\adminchild\assets\ChildAssets;
 
 class Theme {
 
 	public function registerAssets( $view ) {
 
-		ChildAssetBundle::register( $view );
+		ChildAssets::register( $view );
 	}
 }

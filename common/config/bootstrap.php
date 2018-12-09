@@ -1,17 +1,16 @@
 <?php
-// Common resources required by Yii Applications
-Yii::setAlias( 'common', dirname( __DIR__ ) );
-Yii::setAlias( 'themes', dirname( dirname( __DIR__ ) ) . '/themes' );
-Yii::setAlias( 'widgets', dirname( dirname( __DIR__ ) ) . '/widgets' );
-Yii::setAlias( 'uploads', dirname( dirname( __DIR__ ) ) . '/uploads' );
+// Common resources required by Applications
+Yii::setAlias( '@common', dirname( __DIR__ ) );
+Yii::setAlias( '@themes', dirname( dirname( __DIR__ ) ) . '/themes' );
+Yii::setAlias( '@widgets', dirname( dirname( __DIR__ ) ) . '/widgets' );
+Yii::setAlias( '@templates', dirname( dirname( __DIR__ ) ) . '/templates' );
+Yii::setAlias( '@uploads', dirname( dirname( __DIR__ ) ) . '/uploads' );
 
-// Yii Applications
-Yii::setAlias( 'console', dirname( dirname( __DIR__ ) ) . '/console' );
-Yii::setAlias( 'backend', dirname( dirname( __DIR__ ) ) . '/backend' );
-Yii::setAlias( 'frontend', dirname( dirname( __DIR__ ) ) . '/frontend' );
+// Applications
+Yii::setAlias( '@console', dirname( dirname( __DIR__ ) ) . '/console' );
+Yii::setAlias( '@backend', dirname( dirname( __DIR__ ) ) . '/backend' );
+Yii::setAlias( '@frontend', dirname( dirname( __DIR__ ) ) . '/frontend' );
+Yii::setAlias( '@api', dirname( dirname( __DIR__ ) ) . '/api' );
 
 // Foxslider
-Yii::setAlias( 'foxslider', dirname( dirname( __DIR__ ) ) . '/vendor/foxslider' );
-
-// SC Modules
-Yii::setAlias( 'news', dirname( dirname( __DIR__ ) ) . '/modules/news' );
+Yii::setAlias( '@foxslider', dirname( dirname( __DIR__ ) ) . '/vendor/foxslider' );

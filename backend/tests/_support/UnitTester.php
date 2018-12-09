@@ -1,4 +1,12 @@
 <?php
+/**
+ * This file is part of CMSGears Framework. Please view License file distributed
+ * with the source code for license details.
+ *
+ * @link https://www.cmsgears.org/
+ * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
+ */
+
 namespace backend\tests;
 
 /**
@@ -15,10 +23,12 @@ namespace backend\tests;
  * @method \Codeception\Lib\Friend haveFriend($name, $actorClass = NULL)
  *
  * @SuppressWarnings(PHPMD)
-*/
+ */
 class UnitTester extends \Codeception\Actor {
 
 	// Variables ---------------------------------------------------
+
+	// Globals ----------------
 
 	// Public -----------------
 
@@ -43,4 +53,5 @@ class UnitTester extends \Codeception\Actor {
 	// CMG parent classes --------------------
 
 	// UnitTester ----------------------------
+
 }
