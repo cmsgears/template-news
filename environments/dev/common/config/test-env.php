@@ -9,9 +9,9 @@ return yii\helpers\ArrayHelper::merge(
 				'class' => 'yii\db\Connection',
 				'dsn' => 'mysql:host=localhost;dbname=newsdemo_test',
 				'username' => 'newsdemo',
-				'password' => 'Demo#News*623',
+				'password' => 'Ne#1xAl*25',
 				'charset' => 'utf8'
-			],
+			]
 		]
 	]
 );

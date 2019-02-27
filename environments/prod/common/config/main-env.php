@@ -6,7 +6,7 @@ return [
 			'class' => 'yii\db\Connection',
 			'dsn' => 'mysql:host=localhost;dbname=newsdemo',
 			'username' => 'newsdemo',
-			'password' => 'Demo#News*623',
+			'password' => 'Ne#ll24x*2v',
 			'charset' => 'utf8'
 		],
 		'mailer' => [

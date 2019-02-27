@@ -1,130 +1,176 @@
 <?php
+
 return [
-    'vendorPath' => dirname( dirname( __DIR__ ) ) . '/vendor',
-    'components' => [
-        'user' => [
-        	'class' => 'yii\web\User',
-            'identityClass' => 'cmsgears\core\common\models\entities\User',
-            'enableAutoLogin' => true,
-            'loginUrl' => '@web/login'
-        ],
-        'cache' => [
-            'class' => 'yii\caching\FileCache'
-        ],
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false
+	'aliases' => [
+		'@bower' => '@vendor/bower-asset',
+		'@npm'   => '@vendor/npm-asset'
+	],
+	'vendorPath' => dirname( dirname( __DIR__ ) ) . '/vendor',
+	'components' => [
+		// Yii Components
+		'user' => [
+			'class' => 'yii\web\User',
+			'identityClass' => 'cmsgears\core\common\models\entities\User',
+			'enableAutoLogin' => true,
+			'loginUrl' => '@web/login'
 		],
-        'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => [ 'error', 'warning' ]
-                ]
-            ]
-        ],
-        'view' => [
-            'renderers' => [
-                'twig' => [
-                    'class' => 'yii\twig\ViewRenderer',
-                    'cachePath' => '@runtime/Twig/cache',
-                    // Array of twig options:
-                    'options' => [
-                        'auto_reload' => true
-                    ],
-                    'globals' => [ 'html' => '\yii\helpers\Html' ],
-                    'uses' => [ 'yii\bootstrap' ]
-                ]
-            ]
-        ],
-        // CMG Modules - Core
-        'factory' => [
-        	'class' => 'cmsgears\core\common\components\ObjectFactory'
-        ],
-        'core' => [
-        	'class' => 'cmsgears\core\common\components\Core',
-        	'editorClass' => 'cmsgears\widgets\cleditor\ClEditor',
-        	'rbacFilters' => [
-        		'owner' => 'cmsgears\core\common\filters\OwnerFilter',
-        	],
-        	'stats' => true,
-        	'statsTriggers' => false,
-        	'siteConfigAll' => true
-        ],
-        'coreMessage' => [
-        	'class' => 'cmsgears\core\common\components\MessageSource',
-        ],
-        
-        'newsletterMessage' => [
-        	'class' => 'cmsgears\newsletter\common\components\MessageSource',
-        ],
-        
-        'coreMailer' => [
-        	'class' => 'cmsgears\core\common\components\Mailer'
-        ],
-        'formDesigner' => [
-        	'class' => 'cmsgears\core\common\components\FormDesigner'
-        ],
-        'templateManager' => [
-        	'class' => 'cmsgears\core\common\components\TemplateManager',
-        	'templatesPath' => null,
-        	'renderers' => [
-        		'default' => 'Default',
-        		'twig' => 'Twig',
-        		'smarty' => 'Smarty'
-        	]
-        ],
-        'eventManager' => [
-        	'class' => 'cmsgears\notify\common\components\EventManager'
-        ],
-		// CMG Modules - CMS
-        'cms' => [
-        	'class' => 'cmsgears\cms\common\components\Cms'
-        ],
-        'cmsMessage' => [
-        	'class' => 'cmsgears\cms\common\components\MessageSource',
-        ],
-        'cmsMailer' => [
-        	'class' => 'cmsgears\cms\common\components\Mailer'
-        ],
+		'cache' => [
+			'class' => 'yii\caching\FileCache'
+		],
+		'urlManager' => [
+			'enablePrettyUrl' => true,
+			'showScriptName' => false
+		],
+		'log' => [
+			'traceLevel' => YII_DEBUG ? 3 : 0,
+			'targets' => [
+				[
+					'class' => 'yii\log\FileTarget',
+					'levels' => [ 'error', 'warning' ]
+				]
+			]
+		],
+		'view' => [
+			'renderers' => [
+				'twig' => [
+					'class' => 'yii\twig\ViewRenderer',
+					'cachePath' => '@runtime/Twig/cache',
+					// Array of twig options:
+					'options' => [
+						'auto_reload' => true
+					],
+					'globals' => [
+						'html' => '\yii\helpers\Html'
+					],
+					//'uses' => [ 'yii\bootstrap' ]
+				]
+			]
+		],
+		// CMG Modules - Core
+		'factory' => [
+			'class' => 'cmsgears\core\common\components\ObjectFactory'
+		],
+		'core' => [
+			'class' => 'cmsgears\core\common\components\Core',
+			'editorClass' => 'cmsgears\widgets\cleditor\ClEditor',
+			'rbacFilters' => [
+				'discover' => 'cmsgears\core\common\filters\DiscoverFilter',
+				'owner' => 'cmsgears\core\common\filters\OwnerFilter'
+			],
+			'notifications' => true,
+			'siteConfigAll' => true,
+			'multiSite' => false,
+			'subDirectory' => false,
+			'defaultSiteSlug' => 'main',
+			'provinceLabel' => 'State',
+			'regionLabel' => 'District',
+			'zipLabel' => 'Postal Code'
+		],
+		'coreFactory' => [
+			'class' => 'cmsgears\core\common\components\Factory'
+		],
+		'coreMessage' => [
+			'class' => 'cmsgears\core\common\components\MessageSource'
+		],
+		'coreMailer' => [
+			'class' => 'cmsgears\core\common\components\Mailer'
+		],
+		'formDesigner' => [
+			'class' => 'cmsgears\core\common\components\FormDesigner'
+		],
+		'templateManager' => [
+			'class' => 'cmsgears\core\common\components\TemplateManager',
+			'templatesPath' => null,
+			'renderers' => [
+				'default' => 'Default',
+				'twig' => 'Twig',
+				'smarty' => 'Smarty'
+			]
+		],
+		'eventManager' => [
+			'class' => 'cmsgears\notify\common\components\EventManager'
+		],
+		'smsManager' => [
+			'class' => 'cmsgears\sms\common\components\Msg91Manager'
+		],
 		// CMG Modules - Forms
-        'forms' => [
-        	'class' => 'cmsgears\forms\common\components\Form'
-        ],
-        'formsMessage' => [
-        	'class' => 'cmsgears\forms\common\components\MessageSource',
-        ],
-        'formsMailer' => [
-        	'class' => 'cmsgears\forms\common\components\Mailer'
-        ],
-        // CMG Modules - Notify
-        'notify' => [
-        	'class' => 'cmsgears\notify\common\components\Notify'
-        ],
-        'notifyMessage' => [
-        	'class' => 'cmsgears\notify\common\components\MessageSource',
-        ],
-        'notifyMailer' => [
-        	'class' => 'cmsgears\notify\common\components\Mailer'
-        ],
-        // CMG Plugins
-        'fileManager' => [
-        	'class' => 'cmsgears\files\components\FileManager'
-        ],
-        'iconManager' => [
-        	'class' => 'cmsgears\icons\components\IconManager'
-        ],
-        // FoxSlider
-        'foxSlider' => [
-        	'class' => 'foxslider\common\components\Core'
-        ],
-        // SafariCities Modules - Core
-        'newsCore' => [
-        	'class' => 'news\core\common\components\Core'
-        ],
-        'newsletter' => [
-            'class' => 'cmsgears\newsletter\common\components\Newsletter'
-        ]
-    ]
+		'forms' => [
+			'class' => 'cmsgears\forms\common\components\Form'
+		],
+		'formsFactory' => [
+			'class' => 'cmsgears\forms\common\components\Factory'
+		],
+		'formsMessage' => [
+			'class' => 'cmsgears\forms\common\components\MessageSource'
+		],
+		'formsMailer' => [
+			'class' => 'cmsgears\forms\common\components\Mailer'
+		],
+		// CMG Modules - CMS
+		'cms' => [
+			'class' => 'cmsgears\cms\common\components\Cms'
+		],
+		'cmsFactory' => [
+			'class' => 'cmsgears\cms\common\components\Factory'
+		],
+		'cmsMessage' => [
+			'class' => 'cmsgears\cms\common\components\MessageSource'
+		],
+		'cmsMailer' => [
+			'class' => 'cmsgears\cms\common\components\Mailer'
+		],
+		// CMG Modules - Newsletter
+		'newsletter' => [
+			'class' => 'cmsgears\newsletter\common\components\Newsletter'
+		],
+		'newsletterFactory' => [
+			'class' => 'cmsgears\newsletter\common\components\Factory'
+		],
+		'newsletterMessage' => [
+			'class' => 'cmsgears\newsletter\common\components\MessageSource'
+		],
+		'newsletterMailer' => [
+			'class' => 'cmsgears\newsletter\common\components\Mailer'
+		],
+		// CMG Modules - Notify
+		'notify' => [
+			'class' => 'cmsgears\notify\common\components\Notify'
+		],
+		'notifyFactory' => [
+			'class' => 'cmsgears\notify\common\components\Factory'
+		],
+		'notifyMessage' => [
+			'class' => 'cmsgears\notify\common\components\MessageSource'
+		],
+		'notifyMailer' => [
+			'class' => 'cmsgears\notify\common\components\Mailer'
+		],
+		// CMG Modules - SNS Connect
+		'snsConnect' => [
+			'class' => 'cmsgears\social\connect\common\components\SnsConnect'
+		],
+		'snsConnectFactory' => [
+			'class' => 'cmsgears\social\connect\common\components\Factory'
+		],
+		'snsConnectMessage' => [
+			'class' => 'cmsgears\social\connect\common\components\MessageSource'
+		],
+		'snsConnectMailer' => [
+			'class' => 'cmsgears\social\connect\common\components\Mailer'
+		],
+		// CMG Plugins
+		'fileManager' => [
+			'class' => 'cmsgears\files\components\FileManager'
+		],
+		'iconManager' => [
+			'class' => 'cmsgears\icons\components\IconManager'
+		],
+		'breeze' => [
+			'class' => 'cmsgears\templates\breeze\components\Breeze'
+		],
+		// FoxSlider
+		'foxSlider' => [
+			'class' => 'foxslider\common\components\Core'
+		]
+	]
 ];

@@ -1,102 +1,113 @@
 <?php
 
 $params = yii\helpers\ArrayHelper::merge(
-    require( dirname( dirname( __DIR__ ) ) . '/common/config/params.php' ),
-    require( __DIR__ . '/params.php' )
+	require( __DIR__ . '/../../common/config/params.php' ),
+	require( __DIR__ . '/params.php' )
 );
 
 return [
-    'id' => 'app-frontend',
-    'name' => 'news Web',
-    'version' => '2.0.0',
-    'basePath' => dirname(__DIR__),
-    'controllerNamespace' => 'frontend\controllers',
-    'defaultRoute' => 'core/site/index',
-    'bootstrap' => [ 'log', 'core', 'cms', 'forms','notify', 'foxSlider', 'newsletter' ],
-    'modules' => [
-        'forms' => [
-            'class' => 'cmsgears\forms\frontend\Module'
-        ],
-        'cms' => [
-            'class' => 'cmsgears\cms\frontend\Module'
-        ],
-        'core' => [
-            'class' => 'news\core\frontend\Module'
-        ],
-        'notify' => [
-            'class' => 'cmsgears\notify\admin\Module'
-        ],
-        'newsletter' => [
-            'class' => 'cmsgears\newsletter\frontend\Module'
-        ]
-        
-    ],
-    'components' => [
-        'view' => [
+	'id' => 'app-site',
+	'name' => 'Blog',
+	'version' => '1.0.0',
+	'basePath' => dirname( __DIR__ ),
+	'controllerNamespace' => 'frontend\controllers',
+	'defaultRoute' => 'cms/page/single',
+	'bootstrap' => [
+		'log',
+		'core', 'coreFactory', 'forms', 'formsFactory', 'cms', 'cmsFactory', 'breeze',
+		'newsletter', 'newsletterFactory', 'notify', 'notifyFactory', 'snsConnect', 'snsConnectFactory',
+		'foxSlider'
+	],
+	'modules' => [
+		'core' => [
+			'class' => 'cmsgears\core\frontend\Module'
+		],
+		'forms' => [
+			'class' => 'cmsgears\forms\frontend\Module'
+		],
+		'cms' => [
+			'class' => 'cmsgears\cms\frontend\Module'
+		],
+		'newsletter' => [
+			'class' => 'cmsgears\newsletter\frontend\Module'
+		],
+		'notify' => [
+			'class' => 'cmsgears\notify\frontend\Module'
+		],
+		'snslogin' => [
+			'class' => 'cmsgears\social\login\frontend\Module'
+		]
+	],
+	//'catchAll' => [ 'core/site/maintenance' ],
+	'components' => [
+		'view' => [
 			'theme' => [
-            	'class' => 'themes\newstheme\Theme',
-            	'childs' => [
-            		// Child themes to override theme css and to add additional js
-            	]
+				'class' => 'themes\news\Theme',
+				'childs' => [
+					// Child themes to override theme css and to add additional js
+				]
 			]
-        ],
-        'request' => [
-            'csrfParam' => '_csrf-app',
-		    'parsers' => [
-		        'application/json' => 'yii\web\JsonParser'
-		    ]
-        ],
-        'user' => [
-            'identityCookie' => [ 'name' => '_identity-app', 'httpOnly' => true ]
-        ],
-        'session' => [
-            'name' => 'blog-app'
-        ],
-        'errorHandler' => [
-            'errorAction' => 'core/site/error'
-        ],
+		],
+		'request' => [
+			'csrfParam' => '_csrf-news-site',
+			'parsers' => [
+				'application/json' => 'yii\web\JsonParser'
+			]
+		],
+		'user' => [
+			'identityCookie' => [ 'name' => '_identity-news-site', 'httpOnly' => true ]
+		],
+		'session' => [
+			'name' => 'news-site'
+		],
+		'errorHandler' => [
+			'errorAction' => 'core/site/error'
+		],
 		'assetManager' => [
-			'bundles' => require( __DIR__ . '/' . ( YII_ENV_PROD ? 'assets-prod.php' : 'assets-dev.php' ) )
+			'bundles' => require( dirname( dirname( __DIR__ ) ) . '/themes/assets/news/' . ( YII_ENV_PROD ? 'prod.php' : 'dev.php' ) )
 		],
-        'urlManager' => [
-	        'rules' => [
-	        	// api request rules ---------------------------
-	        	'api/<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/api/<controller>/<action>',
-	        	'api/<module:\w+>/<controller:[\w\-]+>/<pcontroller:[\w\-]+>/<action:[\w\-]+>' => '<module>/api/<controller>/<pcontroller>/<action>',
-	        	'api/<module:\w+>/<pcontroller:\w+>/<pcontroller2:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/api/<pcontroller>/<pcontroller2>/<controller>/<action>',
-	        	// apix request rules --------------------------
-	        	// Forms - site forms
-	        	'apix/form/<slug:[\w\-]+>' => 'forms/apix/form/submit',
-	        	// Core Module Actions - 2 levels
-	        	'apix/<controller:\w+>/<action:[\w\-]+>' => 'core/apix/<controller>/<action>',
-	        	// Module Actions - 3, 4 and 5 levels
-	        	'apix/<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
-	        	'apix/<module:\w+>/<pcontroller:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller>/<controller>/<action>',
-	        	'apix/<module:\w+>/<pcontroller:\w+>/<pcontroller2:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller>/<pcontroller2>/<controller>/<action>',
+		'urlManager' => [
+			'rules' => [
+				// apix request rules --------------------------
+				// Forms - site forms
+				'apix/form/<slug:[\w\-]+>' => 'forms/apix/form/submit',
+				// Core - 2 levels
+				'apix/<controller:[\w\-]+>/<action:[\w\-]+>' => 'core/apix/<controller>/<action>',
+				// Generic - 3, 4 and 5 levels - catch all
+				'apix/<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<controller>/<action>',
+				'apix/<module:\w+>/<pcontroller:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller>/<controller>/<action>',
+				'apix/<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/apix/<pcontroller1>/<pcontroller2>/<controller>/<action>',
 				// regular request rules -----------------------
-	        	// Blog
-	        	'blog/search' => 'cms/post/search',
-	        	'blog/category/<slug:[\w\-]+>' => 'cms/post/category',
-	        	'blog/tag/<slug:[\w\-]+>' => 'cms/post/tag',
-	        	'blog/<slug:[\w\-]+>' => 'cms/post/single',
-				'blog/<controller:\w+>/<action:[\w\-]+>' => 'cms/<controller>/<action>',
-	        	// Forms
-	        	'form/<slug:[\w\-]+>' => 'forms/form/single',
-	        	// Core Module Pages
-	        	'<controller:\w+>/<action:[\w\-]+>' => 'core/<controller>/<action>',
-	        	// Module Pages
-	        	'<module:\w+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
-	        	// Standard Pages
-	        	'<action:(home)>' => 'core/user/<action>',
-	        	'<action:(login|logout|register|forgot-password|reset-password|activate-account|confirm-account)>' => 'core/site/<action>',
-	        	// CMS Pages
-	        	'<slug:[\w\-]+>' => 'cms/page/single'
-	        ]
+				// CMS Pages
+				'page/search' => 'cms/page/search',
+				// Articles - Public - search and single
+				'article/search' => 'cms/article/search',
+				'article/<slug:[\w\-]+>' => 'cms/article/single',
+				// Blog Posts - Public - search, category, tag and single
+				'blog/search' => 'cms/post/search',
+				'blog/category/<slug:[\w\-]+>' => 'cms/post/category',
+				'blog/tag/<slug:[\w\-]+>' => 'cms/post/tag',
+				'blog/author/<slug:[\w\-]+>' => 'cms/post/author',
+				'blog/<slug:[\w\-]+>' => 'cms/post/single',
+				// Forms
+				'form/<slug:[\w\-]+>' => 'cms/form/single',
+				// Core - 2 levels
+				'<controller:[\w\-]+>/<action:[\w\-]+>' => 'core/<controller>/<action>',
+				// Module Pages - 3, 4 and 5 levels - catch all
+				'<module:\w+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<controller>/<action>',
+				'<module:\w+>/<pcontroller:[\w\-]+>/<controller:\w+>/<action:[\w\-]+>' => '<module>/<pcontroller>/<controller>/<action>',
+				'<module:\w+>/<pcontroller1:[\w\-]+>/<pcontroller2:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>' => '<module>/<pcontroller1>/<pcontroller2>/<controller>/<action>',
+				// Standard Pages
+				'<action:(home|profile|calendar|account|address|settings)>' => 'core/user/<action>',
+				'<action:(login|logout|register|forgot-password|reset-password|reset-password-otp|activate-account|confirm-account|feedback|testimonial)>' => 'core/site/<action>',
+				// CMS Pages
+				'<slug:[\w\-]+>' => 'cms/page/single'
+			]
 		],
-        'core' => [
-        	'loginRedirectPage' => '/',
-        	'logoutRedirectPage' => '/'
-        ]
-    ],
-    'params' => $params
+		'core' => [
+			'loginRedirectPage' => '/home',
+			'logoutRedirectPage' => '/'
+		]
+	],
+	'params' => $params
 ];

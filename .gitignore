@@ -1,8 +1,8 @@
 # yii environment
-yii
-yii.bat
-yii_test
-yii_test.bat
+/yii
+/yii.bat
+/yii_test
+/yii_test.bat
 
 # phpstorm project files
 .idea/
@@ -32,7 +32,7 @@ backend/runtime/
 console/runtime/
 
 # uploads - keep it commented for test data .. uncomment once test data is done
-uploads/
+#uploads/
 
 # windows thumbnail cache
 Thumbs.db

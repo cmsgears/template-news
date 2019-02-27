@@ -8,20 +8,20 @@ return [
 	'components' => [
 		'urlManager' => [
 			'class' => 'yii\web\UrlManager',
-			'baseUrl' => 'https://alpha.cmsgears.com/newsdemo/frontend/web'
+			'baseUrl' => 'https://dev.vcdevhub.com/newsdemo/frontend/web'
 		],
 		// CMG Modules - Core
 		'migration' => [
 			'class' => 'cmsgears\core\common\components\Migration',
 			'cmgPrefix' => 'cmg_',
-			'sitePrefix' => 'site_',
-			'siteName' => 'CMSGears',
+			'sitePrefix' => 'news_',
+			'siteName' => 'News',
 			'siteTitle' => 'News Demo',
-			'siteMaster' => 'demomaster',
-			'primaryDomain' => 'cmsgears.com',
-			'defaultSite' => 'https://alpha.cmsgears.com/newsdemo/frontend/web',
-			'defaultAdmin' => 'https://alpha.cmsgears.com/newsdemo/backend/web',
-			'uploadsUrl' => 'https://alpha.cmsgears.com/newsdemo/uploads'
+			'siteMaster' => 'newsdemo',
+			'primaryDomain' => 'dev.vcdevhub.com',
+			'defaultSite' => 'https://dev.vcdevhub.com/newsdemo/frontend/web',
+			'defaultAdmin' => 'https://dev.vcdevhub.com/newsdemo/backend/web',
+			'uploadsUrl' => 'https://dev.vcdevhub.com/newsdemo/uploads'
 		]
 	]
 ];

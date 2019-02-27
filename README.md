@@ -1,10 +1,10 @@
 Project 	- CMSGears (https://www.cmsgears.org)
 
-Template  	- News
+Template  	- Blog
 
-License 	- CMSGears (https://www.cmsgears.com/license)
+License 	- GPLv3 (http://www.gnu.org/licenses/gpl-3.0.html)
 
-Description - The news template requires below listed modules, plugins, themes and widgets provided by CMSGears.
+Description - The blog template requires below listed modules, plugins, themes and widgets freely provided by CMSGears.
 
 Modules
 ------------------------------------------
@@ -32,48 +32,48 @@ Widgets
 Themes
 ------------------------------------------
 1. Admin Theme provide layouts to manage Core, Forms and CMS modules. It also provide options to configure modules and plugins.
-2. News Theme for frontend. It provide layouts and views for Core, Forms and CMS modules.
+2. Blog Theme for frontend. It provide layouts and views for Core, Forms and CMS modules.
 
 Template Details
 =========================================
-The News Template is a group of directories and configuration files used to manage the backend and frontend applications.
+The Blog Template is a group of directories and configuration files used to manage the backend and frontend applications. 
 
 It also provide DB configuration having required test data. The uploads directory is uploaded by default files required for demonstration purpose.
 
 Template Demo
 =========================================
-1. Frontend - http://demo.cmsgears.com/templates/news (demouser@cmsgears.com, newS#1$23xq)
-2. Admin - http://demo.cmsgears.com/templates/news/admin (demomaster@cmsgears.com, newS#1$23xq)
+1. Frontend - https://demo.cmsgears.com/templates/blog (demouser@cmsgears.com, test#123)
+2. Admin - https://demo.cmsgears.com/templates/blog/admin (demomaster@cmsgears.com, test#123)
 
 Template Installation
 =========================================
 
-The News Template can be installed via composer using the below mentioned command. To install composer, please refer to their official site https://getcomposer.org.
+The Blog Template can be installed via composer using the below mentioned command. To install composer, please refer to their official site https://getcomposer.org.
 
-We can install release and pre-release i.e. alpha, beta versions using composer as mentioned below.
+We can install release and pre-release i.e. alpha, beta versions using composer as mentioned below. 
 
 ```
 // Release Versions
 
-php composer.phar create-project --prefer-dist --stability=stable cmsgears/template-news cmgnews
+php composer.phar create-project --prefer-dist --stability=stable cmsgears/template-blog blogdemo
 
 or
 
-composer create-project --prefer-dist --stability=stable cmsgears/template-news cmgnews
+composer create-project --prefer-dist --stability=stable cmsgears/template-blog blogdemo
 ```
 
 We can also use below mentioned commands to access the pre release code
 ```
 // Pre-release Versions
 
-php composer.phar create-project --prefer-dist --stability=<alpha or beta or RC> cmsgears/template-news cmgnews
+php composer.phar create-project --prefer-dist --stability=<alpha or beta or RC> cmsgears/template-blog blogdemo
 
 or
 
-composer create-project --prefer-dist --stability=<alpha or beta or RC> cmsgears/template-news cmgnews
+composer create-project --prefer-dist --stability=<alpha or beta or RC> cmsgears/template-blog blogdemo
 ```
 
-We can also install the template for latest code by cloning News Template for the pre-release branch i.e. alpha, beta. In this case, we need to install composer.json file to initialise vendor directory.
+We can also install the template for latest code by cloning Blog Template for the pre-release branch i.e. alpha, beta. In this case, we need to install composer.json file to initialise vendor directory.
 
 Server Details
 =========================================
@@ -87,14 +87,14 @@ Template Configuration - New
 3. Install the DB using all-in-one-d.sql provided within the console/migrations directory. We might need to change database name if it's different than cmgdemobasic.
 4. Run the php script init.php to initialize the application for the predefined environments. The script will ask to choose environemnt among prod or dev.
 5. Update htaccess located under template root based on your web server needs. More details about live application settings can be found at http://www.cmsgears.org.
-6. Download the Admin and Basic Themes and place them under <template root>/themes/admin and <template root>/themes/news directories respectively.
+6. Download the Admin and Basic Themes and place them under <template root>/themes/admin and <template root>/themes/blog directories respectively. 
 7. Now we can run the template using our preferred browser. Example links are as mentioned below.
 8. Login to admin and update file upload url in case project name is different.
 9. By default all the files uploaded by users will be stored in uploads directory.
 
 ```
-Frontend - http://localhost/cmgnews/frontend/web
-Admin - http://localhost/cmgnews/frontend/web
+Frontend - http://localhost/blogdemo/frontend/web
+Admin - http://localhost/blogdemo/frontend/web
 ```
 
 Template Configuration - Update
@@ -105,7 +105,7 @@ We can update the dependencies using composer.json file located at the root of t
 Default Pages
 =========================================
 
-The News Theme installed for News Template provide views for default system pages as listed below.
+The Blog Theme installed for Blog Template provide views for default system pages as listed below.
 
 Public Pages
 ----------------------------
@@ -128,4 +128,3 @@ CMS
 ----------------------------
 1. CMS Page - The published pages can be accessed by site url followed by page slug.
 2. CMS Post - The published posts can be accessed by site url followed by post/(post slug).
-

@@ -10,9 +10,7 @@ Yii::setAlias( '@uploads', dirname( dirname( __DIR__ ) ) . '/uploads' );
 Yii::setAlias( '@console', dirname( dirname( __DIR__ ) ) . '/console' );
 Yii::setAlias( '@backend', dirname( dirname( __DIR__ ) ) . '/backend' );
 Yii::setAlias( '@frontend', dirname( dirname( __DIR__ ) ) . '/frontend' );
+Yii::setAlias( '@api', dirname( dirname( __DIR__ ) ) . '/api' );
 
 // Foxslider
 Yii::setAlias( '@foxslider', dirname( dirname( __DIR__ ) ) . '/vendor/foxslider' );
-
-// News Template
-Yii::setAlias( 'news', dirname( dirname( __DIR__ ) ) . '/modules/news' );
