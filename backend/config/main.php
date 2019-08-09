@@ -14,7 +14,8 @@ return [
 		'log',
 		'core', 'coreFactory', 'forms', 'formsFactory', 'cms', 'cmsFactory', 'breeze',
 		'newsletter', 'newsletterFactory', 'notify', 'notifyFactory', 'snsConnect', 'snsConnectFactory',
-		'foxSlider'
+		'foxSlider',
+		'newsCoreFactory'
 	],
     'modules' => [
         'core' => [
@@ -35,8 +36,14 @@ return [
         'snsconnect' => [
             'class' => 'cmsgears\social\connect\admin\Module'
         ],
+		'sms' => [
+			'class' => 'cmsgears\sms\admin\Module'
+		],
         'foxslider' => [
             'class' => 'foxslider\admin\Module'
+        ],
+        'newscore' => [
+            'class' => 'modules\core\admin\Module'
         ]
     ],
     'components' => [
@@ -90,7 +97,7 @@ return [
 		],
 		'sidebar' => [
 			'class' => 'cmsgears\core\admin\components\Sidebar',
-			'modules' => [ 'cms', 'foxslider', 'core', 'notify', 'newsletter', 'snsconnect' ],
+			'modules' => [ 'newscore', 'cms', 'foxslider', 'core', 'notify', 'newsletter', 'snsconnect' ],
 			'plugins' => [
 				'socialMeta' => [ 'twitter-meta', 'facebook-meta' ],
 				'fileManager' => [ 'file' ]

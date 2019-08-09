@@ -1,5 +1,4 @@
 <?php
-
 return [
 	'id' => 'app-backend-tests',
 	'components' => [
@@ -8,6 +7,9 @@ return [
 		],
 		'urlManager' => [
 			'showScriptName' => true
-		]
+		],
+        'request' => [
+            'cookieValidationKey' => 'test'
+        ]
 	]
 ];

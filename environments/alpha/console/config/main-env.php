@@ -17,7 +17,7 @@ return [
 			'sitePrefix' => 'news_',
 			'siteName' => 'News',
 			'siteTitle' => 'News Demo',
-			'siteMaster' => 'newsdemo',
+			'siteMaster' => 'demomaster',
 			'primaryDomain' => 'dev.vcdevhub.com',
 			'defaultSite' => 'https://dev.vcdevhub.com/newsdemo/frontend/web',
 			'defaultAdmin' => 'https://dev.vcdevhub.com/newsdemo/backend/web',

@@ -1,2 +1,0 @@
-
-<a href="<?= 'http://localhost/newstheme/frontend/web/blog/tag/'.$tag->slug ?> "> <div class="bkg text text-white inline-block bkg-secondary-l margin margin-default padding padding-default">  <?= $tag->name ?> <i class="fa fa-tag"> </i> </div> </a>
