@@ -7,20 +7,22 @@ $params = yii\helpers\ArrayHelper::merge(
 
 return [
 	'id' => 'app-site',
-	'name' => 'Blog',
+	'name' => 'News Demo',
 	'version' => '1.0.0',
 	'basePath' => dirname( __DIR__ ),
 	'controllerNamespace' => 'frontend\controllers',
 	'defaultRoute' => 'cms/page/single',
+	//'catchAll' => [ 'core/site/maintenance' ],
 	'bootstrap' => [
 		'log',
 		'core', 'coreFactory', 'forms', 'formsFactory', 'cms', 'cmsFactory', 'breeze',
 		'newsletter', 'newsletterFactory', 'notify', 'notifyFactory', 'snsConnect', 'snsConnectFactory',
-		'foxSlider'
+		'foxSlider',
+		'newsCoreFactory'
 	],
 	'modules' => [
 		'core' => [
-			'class' => 'cmsgears\core\frontend\Module'
+			'class' => 'modules\core\frontend\Module'
 		],
 		'forms' => [
 			'class' => 'cmsgears\forms\frontend\Module'
@@ -34,11 +36,10 @@ return [
 		'notify' => [
 			'class' => 'cmsgears\notify\frontend\Module'
 		],
-		'snslogin' => [
-			'class' => 'cmsgears\social\login\frontend\Module'
+		'snsconnect' => [
+			'class' => 'cmsgears\social\connect\frontend\Module'
 		]
 	],
-	//'catchAll' => [ 'core/site/maintenance' ],
 	'components' => [
 		'view' => [
 			'theme' => [

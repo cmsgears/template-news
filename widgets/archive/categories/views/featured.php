@@ -1,1 +1,0 @@
-<a href="<?= 'http://localhost/newstheme/frontend/web/blog/category/'.$category->slug ?>"><div class="col col12x6 text text-white"> <?= $category->name ?>  </div></a>
